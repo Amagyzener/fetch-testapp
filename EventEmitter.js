@@ -1,3 +1,9 @@
+/**
+ * [Module] Транслятор событий
+ * [Author] Amagyzenér <dmitry-phs535@ya.ru>
+ * [Version] 2.0.0 (08.05.2022)
+ * [TODO]
+*/
 
 export class EventEmitter {
     /* [{ name: 'event:name-changed', callback: function() {}, once: false }, ...] */
