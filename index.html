@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>Fetch API Test App</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="Author" content="Amagyzenér aka Dmitry Pasternak">
+		<meta name="Date" content="8 May, 2022">
+		<meta name="Last Revised" content="8 May, 2022">
+		<!-- Краткое описание (или аннотация) страницы часто используется поисковиками при отображении результатов поиска. -->
+		<meta name="Description" content="Get iintoo it today — create your own investor account." />
+		<!-- [IE only] Призывает Internet Explorer работать в определённом режиме документа (IE=Edge включает наиболее новый из доступных режимов). -->
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<!-- Наличие метаданных 'viewport' говорит о том, что страница оптимизирована для мобильных устройств. -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="style.css" media="all">
+		<script type="module" src="code.js"></script>
+	</head>
+	<body>
+		<main class="page">
+			<form class="page__form" autocomplete="off">
+				<div class="input-wrapper">
+					<input type="text" title="query" placeholder="Repository name" list="suggestions">
+				</div>
+				<datalist id="suggestions">
+					<!-- <option value="repo-name"> -->
+				</datalist>
+			</form>
+			<div class="page__sep">
+				<span>Repository list</span>
+			</div>
+			<div class="page__repos flex-col">
+				<!-- <div class="flex-row">
+					<div>
+						<p>Name: rep-name</p>
+						<p>Owner: rep-owner</p>
+						<p>Stars: rep-stargazers-count</p>
+					</div>
+					<button></button>
+				</div> -->
+			</div>
+		</main>
+	</body>
+</html>
