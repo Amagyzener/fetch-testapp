@@ -86,10 +86,10 @@ function debounce(fn, delay, immediate = false, context = this) {
 		'true' — реальный вызов происходит сразу; последующие попытки вызова игнорируются в течение 'delay', отсчитанной с момента последней попытки. */
 	let timer;
 	return function(...args) {
-		if (immediate && !timer) fn.apply(context, args);
+		immediate && !timer && fn.apply(context, args);
 		clearTimeout(timer);
 		timer = setTimeout(() => {
-			fn.apply(context, args);
+			!immediate && fn.apply(context, args);
 			timer = null;
 		}, delay);
 	};
