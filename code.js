@@ -28,7 +28,13 @@ page_input.addEventListener('input', (event) => {
 async function createSuggest(query) {
 	clearSuggest();
 	if (!query.length || query == false) return;
-	const data = await fetch(`https://api.github.com/search/repositories?q=${query}&per_page=5`).then(data => data.json());
+
+	let data;
+	try {
+		data = await fetch(`https://api.github.com/search/repositories?q=${query}&per_page=5`).then(data => data.json());
+	} catch(e) {
+		return console.error(e);
+	}
 	//return console.log(repos.items); // -> [{}, ...]
 	repos = data.items;
 
