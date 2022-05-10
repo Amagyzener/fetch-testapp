@@ -27,7 +27,7 @@ page_input.addEventListener('input', (event) => {
 
 async function createSuggest(query) {
 	clearSuggest();
-	if (!query.length) return;
+	if (!query.length || query == false) return;
 	const data = await fetch(`https://api.github.com/search/repositories?q=${query}&per_page=5`).then(data => data.json());
 	//return console.log(repos.items); // -> [{}, ...]
 	repos = data.items;
@@ -76,6 +76,7 @@ function removeEntry(elem) {
 function clearSuggest() {
 	if (!datalist.children.length) return;
 	while (datalist.lastElementChild) datalist.lastElementChild.remove();
+	console.log('Suggestion list has been cleared.');
 }
 
 
