@@ -31,8 +31,17 @@ async function createSuggest(query) {
 
 	let data;
 	try {
-		data = await fetch(`https://api.github.com/search/repositories?q=${query}&per_page=5`).then(data => data.json());
+		/* The Promise returned from 'fetch()' won't reject on HTTP error status even if the response is an HTTP 404 or 500.
+			Instead, it will resolve normally (with 'ok' status set to 'false'),
+				and it will only reject on network failure or if anything prevented the request from completing. */
+		data = await fetch(`https://api.github.com/search/repositories?q=${query}&per_page=5`).then(data => {
+			if (data.ok)
+				return data.json();
+			else
+				throw new Error(`Woops! Could not get request data (status ${data.status})`); // на случай 404 и подобных
+		});
 	} catch(e) {
+		// на случай сетевых ошибок
 		return console.error(e);
 	}
 	//return console.log(repos.items); // -> [{}, ...]
